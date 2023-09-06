@@ -1,0 +1,16 @@
+name: poo-projet-mvc
+recipe: lamp
+config:
+  php: "8.2"
+  webroot: ./public
+  xdebug: "develop,debug"
+services:
+  appserver:
+    config:
+      php: ./.lando.config/php.ini
+  database:
+    portforward: 3307
+    creds:
+      user: admin
+      password: admin
+      database: site_mvc

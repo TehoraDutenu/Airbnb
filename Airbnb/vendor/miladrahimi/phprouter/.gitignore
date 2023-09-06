@@ -1,0 +1,7 @@
+/.idea
+/vendor
+/examples
+/composer.lock
+/build
+.DS_Store
+.phpunit.result.cache

@@ -1,0 +1,42 @@
+{
+  "name": "miladrahimi/phpcontainer",
+  "description": "Dependency injection (IoC) container for PHP projects",
+  "keywords": [
+    "IoC",
+    "DI",
+    "DIC",
+    "Inversion",
+    "Control",
+    "Container",
+    "Dependency",
+    "Injection"
+  ],
+  "homepage": "http://github.io/miladrahimi/phpcontainer",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Milad Rahimi",
+      "email": "info@miladrahimi.com",
+      "homepage": "https://miladrahimi.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "info@miladrahimi.com",
+    "source": "https://github.com/miladrahimi/phpcontainer/issues"
+  },
+  "require": {
+    "php": "^7.2|^8.0",
+    "psr/container": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MiladRahimi\\PhpContainer\\": "src/",
+      "MiladRahimi\\PhpContainer\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7|^8|^9"
+  }
+}
