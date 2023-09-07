@@ -8,12 +8,13 @@
 </head>
 
 <body>
-    <?php if ($auth::isAuth()) $auth::redirect('/') ?>
 
-    <h2>Connexion</h2>
+    <?php if ($auth::isAuth()) $auth::redirect('/'); ?>
 
+    <h1>Se connecter</h1>
+
+    <!-- Afficher les erreurs éventuelles -->
     <?php
-    // - Afficher les erreurs s'il y en a
     if ($form_result && $form_result->hasError()) {
     ?>
         <div>
@@ -22,6 +23,8 @@
     <?php
     }
     ?>
+
+    <!-- Formulaire de connexion -->
     <form action="/login" method="post">
         <label for="email">
             Email : <input type="email" name="email" id="email">
@@ -29,9 +32,8 @@
         <label for="password">
             Mot de passe : <input type="password" name="password" id="password">
         </label><br>
-        <input type="submit" value="GO !">
+        <input type="submit" value="Connexion">
     </form>
 </body>
-
 
 </html>

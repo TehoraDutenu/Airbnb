@@ -4,7 +4,7 @@ namespace Core\Database;
 
 use PDO;
 
-// - Design Pattern Singletoon (ne peut être instanciée qu'une seule fois)
+// - Design Pattern Singleton 
 class Database
 {
     private static ?PDO $pdoInstance = null;
@@ -28,7 +28,7 @@ class Database
     }
 
     // - Déclarer le contructeur en private pour bloquer l'instanciation de la classe 
-    private function __construct()
+    protected function __construct()
     {
     }
 

@@ -3,26 +3,22 @@
 namespace Core\Repository;
 
 use Core\App;
-use App\Model\Repository\ToyRepository;
-use App\Model\Repository\UserRepository;
-use App\Model\Repository\BrandRepository;
+use App\Model\Repository\UtilisateurRepository;
 
 class AppRepoManager
 {
     // - On importe le trait
     use RepositoryManagerTrait;
 
-    private UserRepository $userRepository;
-    private ToyRepository $toyRepository;
-    private BrandRepository $brandRepository;
+    private UtilisateurRepository $utilisateurRepository;
 
     // - Getters
-    public function getUserRepo(): UserRepository
+    public function getUserRepo(): UtilisateurRepository
     {
-        return $this->userRepository;
+        return $this->utilisateurRepository;
     }
 
-    public function getToyRepo(): ToyRepository
+    /*     public function getToyRepo(): ToyRepository
     {
         return $this->toyRepository;
     }
@@ -31,13 +27,11 @@ class AppRepoManager
     {
         return $this->brandRepository;
     }
-
+ */
     // - Constructeur
     protected function __construct()
     {
         $config = App::getApp();
-        $this->userRepository = new UserRepository($config);
-        $this->toyRepository = new ToyRepository($config);
-        $this->brandRepository = new BrandRepository($config);
+        $this->utilisateurRepository = new UtilisateurRepository($config);
     }
 }

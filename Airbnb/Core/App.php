@@ -2,11 +2,14 @@
 
 namespace Core;
 
-use App\Controller\ToyController;
+/* use App\Controller\ToyController;
+ */
+
 use MiladRahimi\PhpRouter\Router;
 use App\Controller\AuthController;
 use App\Controller\PageController;
-use App\Controller\AdminController;
+
+/* use App\Controller\AdminController; */
 use Core\Database\DatabaseConfigInterface;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
 use MiladRahimi\PhpRouter\Exceptions\InvalidCallableException;
@@ -15,7 +18,7 @@ class App implements DatabaseConfigInterface
 {
     // - Déclarer des constantes pour la connexion à la BDD
     private const DB_HOST = 'database';
-    private const DB_NAME = 'site_mvc';
+    private const DB_NAME = 'site_airbnb';
     private const DB_USER = 'admin';
     private const DB_PASS = 'admin';
 
@@ -65,22 +68,24 @@ class App implements DatabaseConfigInterface
     {
         // - Créer la route pour la page d'accueil 
         // $this->router->get('/', function () {
-        //     echo 'Utiliser le controller pour envoyer la vue';
+        // echo 'Utiliser le controller pour envoyer la vue';
         // });
 
         // - Déclarer les patterns pour tester les valeurs des arguments
         $this->router->pattern('id', '[0-9]\d*');
         $this->router->pattern('slug', '(\d+-)?[a-z]+(-[a-z-\d]+)*');
         // - Créer la route pour la page d'accueil avec controller
-        $this->router->get('/', [ToyController::class, 'index']);
+        $this->router->get('/', [PageController::class, 'index']);
+        /*
         // - Route pour les détails de jouets
         $this->router->get('/jouet/{id}', [ToyController::class, 'toyById']);
         // - Route pour les jouets par marque
-        $this->router->get('/brands/{id}', [ToyController::class, 'toysByBrand']);
+        $this->router->get('/brands/{id}', [ToyController::class, 'toysByBrand']); */
         // - Route pour la vue connexion
         $this->router->get('/connexion', [AuthController::class, 'login']);
         // - Route pour envoyer le formulaire d'authentification (loginPost est la méthode)
         $this->router->post('/login', [AuthController::class, 'loginPost']);
+        /*
         // - Route pour logout
         $this->router->get('/logout', [AuthController::class, 'logout']);
         // - Route pour page admin
@@ -102,6 +107,7 @@ class App implements DatabaseConfigInterface
         $this->router->post('/updateToy', [AdminController::class, 'updateToy']);
         // - Route pour supprimer un jouet
         $this->router->get('/admin/deleteToy/{id}', [AdminController::class, 'deleteToy']);
+ */
     }
 
     // - 3. Méthode startRouter(démarrer)

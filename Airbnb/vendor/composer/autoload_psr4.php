@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src', $vendorDir . '/psr/http-factory/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'MiladRahimi\\PhpRouter\\' => array($vendorDir . '/miladrahimi/phprouter/src'),
     'MiladRahimi\\PhpContainer\\Tests\\' => array($vendorDir . '/miladrahimi/phpcontainer/tests'),

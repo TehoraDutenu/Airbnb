@@ -2,7 +2,7 @@
 
 namespace Core\Session;
 
-class SessionManager
+abstract class SessionManager
 {
     // - Alimenter la session
     public static function set(string $key, mixed $value): void

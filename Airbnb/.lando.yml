@@ -1,4 +1,4 @@
-name: poo-projet-mvc
+name: poo-airbnb-agnes
 recipe: lamp
 config:
   php: "8.2"
@@ -13,4 +13,4 @@ services:
     creds:
       user: admin
       password: admin
-      database: site_mvc
+      database: site_airbnb

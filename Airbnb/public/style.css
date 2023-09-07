@@ -15,6 +15,7 @@ a {
     color: inherit;
 }
 
+
 #container {
     background-image: url('img/background.jpg');
     background-size: cover;
@@ -26,67 +27,3 @@ a {
     width: 100%;
 }
 
-
-/* -- Navbar -- */
-
-#top-bar {
-    background: #0056af;
-    color: #fff;
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    margin-top: 15px;
-    width: 50%;
-    z-index: 1;
-}
-
-.menu-root {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    text-align: center;
-}
-
-.menu-root li {
-    border-right: 2px dashed #fff;
-    padding: 15px;
-    position: relative;
-}
-
-.menu-root li:hover {
-    background: #b9d1f3;
-    color: #0056af;
-}
-
-.menu-root li ul {
-    position: absolute;
-    left: 0;
-    top: 50px;
-    width: inherit;
-}
-
-.menu-root li ul li {
-    background: #b9d1f3;
-    color: #000;
-    display: none;
-    flex-direction: column;
-    padding-left: 15px;
-    width: 100%;
-    white-space: nowrap;
-    z-index: 2;
-}
-
-.menu-root li:hover ul li {
-    display: block;
-    padding: 5px;
-    text-align: left;
-    z-index: 2;
-}
-
-.logout i {
-    font-size: 25px;
-}
-
-.logout:hover i {
-    color: #ff0000;
-}
