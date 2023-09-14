@@ -4,7 +4,7 @@
         "miladrahimi/phprouter": "5.*"
     },
     "autoload": {
-        "psr-4":{
+        "psr-4": {
             "App\\": "App/",
             "Core\\": "Core/"
         }

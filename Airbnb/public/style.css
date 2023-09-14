@@ -1,12 +1,12 @@
-* {
-    box-sizing: border-box;
+/* -- RESET -- */
+
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-ul,
-ol,
-li {
+ul,ol,li{
     list-style: none;
 }
 
@@ -15,15 +15,12 @@ a {
     color: inherit;
 }
 
-
-#container {
-    background-image: url('img/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
+.custom-link:hover {
+    color: #f5796c !important;
 }
 
+/* -- Accueil -- */
+
+.logo {
+    width: 100px !important;
+}

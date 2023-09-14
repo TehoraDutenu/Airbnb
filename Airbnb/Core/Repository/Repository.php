@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace Core\Repository;
 
 use PDO;
@@ -7,7 +6,7 @@ use Core\Model\Model;
 use Core\Database\Database;
 use Core\Database\DatabaseConfigInterface;
 
-abstract class Repository
+abstract class Repository 
 {
     protected PDO $pdo;
 
@@ -20,62 +19,53 @@ abstract class Repository
 
     protected function readAll(string $class_name): array
     {
-        // - Déclarer un tableau vide
+        //on déclare un tableau vide
         $arr_result = [];
-
-        // - Créer la requête
+        //on crée la requete
         $q = sprintf("SELECT * FROM %s", $this->getTableName());
-
-        // - Exécuter la requête
+        //on execute la requete
         $stmt = $this->pdo->query($q);
-
-        // - Si la requête n'est pas valide, retourner tableau vide
-        if (!$stmt) return $arr_result;
-
-        // - Boucler sur les données de la requête
-        while ($row_data = $stmt->fetch()) {
-
-            // - Stocker dans $arr_result un nouvel objet de la classe $class_name
+        //si la requete n'est pas valide on retourne le tableau vide
+        if(!$stmt) return $arr_result;
+        //on boucle sur les données de la requete
+        while($row_data = $stmt->fetch()){
+            //on stock dans $arr_result un nouvel objet de la classe $class_name
             $arr_result[] = new $class_name($row_data);
         }
-        // - Retourner le tableau
+        //on retourne le tableau
         return $arr_result;
     }
 
     protected function readById(string $class_name, int $id): ?Model
     {
-        // - Créer la requête
+        
+        //on crée la requete
         $q = sprintf("SELECT * FROM %s WHERE id=:id", $this->getTableName());
-
-        // - Préparer la requête
+        //on prepare la requete
         $stmt = $this->pdo->prepare($q);
-
-        // - Si la requête n'est pas valide, retourner tableau vide
-        if (!$stmt) return null;
-
-        // - Exécuter la requête
+        //si la requete n'est pas valide on retourne le tableau vide
+        if(!$stmt) return null;
+        
+        //on execute la requete
         $stmt->execute(['id' => $id]);
-
-        // - Récupérer les résultats
+        //on recupère les résultats
         $row_data = $stmt->fetch();
-
-        // - Retourner l'objet $class_name
+        //on retourne un objet de la classe $class_name
         return !empty($row_data) ? new $class_name($row_data) : null;
     }
 
-    protected function delete(int $id)
+    protected function delete(int $id): bool
     {
-        // - Créer la requête
-        $q = sprintf('DELETE FROM %s WHERE id = :id', $this->getTableName());
-
-        // - Préparer la requête
+        //on crée la requete
+        $q = sprintf("DELETE FROM %s WHERE id=:id", $this->getTableName());
+        //on prepare la requete
         $stmt = $this->pdo->prepare($q);
-
-        // - Si la requête n'est pas valide
-        if (!$stmt) return false;
-
-        // - Exécuter la requête
-        $stmt->execute((['id' => $id]));
+        //si la requete n'est pas valide on retourne le tableau false
+        if(!$stmt) return false;
+        
+        //on execute la requete
+        $stmt->execute(['id' => $id]);
         return true;
     }
+
 }

@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace Core\Controller;
 
 use Core\App;
@@ -11,7 +10,8 @@ class Controller implements ControllerInterface
         string $uri,
         int $status = 302,
         array $headers = []
-    ) {
+    )
+    {
         $response = new RedirectResponse($uri, $status, $headers);
         App::getApp()->getRouter()->getPublisher()->publish($response);
         die();

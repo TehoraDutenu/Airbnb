@@ -3,35 +3,57 @@
 namespace Core\Repository;
 
 use Core\App;
-use App\Model\Repository\UtilisateurRepository;
+use App\Model\Repository\BienRepository;
+use App\Model\Repository\EquipementRepository;
+use App\Model\Repository\PhotoRepository;
+use App\Model\Repository\TypebienRepository;
+use App\Model\Repository\UserRepository;
 
 class AppRepoManager
 {
-    // - On importe le trait
+    private UserRepository $userRepository;
+    private BienRepository $bienRepository;
+    private TypebienRepository $typebienRepository;
+    private EquipementRepository $equipementRepository;
+    private PhotoRepository $photoRepository;
+
+    // - Importer le trait
     use RepositoryManagerTrait;
 
-    private UtilisateurRepository $utilisateurRepository;
-
-    // - Getters
-    public function getUserRepo(): UtilisateurRepository
+    // - Créer les getters
+    public function getUserRepo(): UserRepository
     {
-        return $this->utilisateurRepository;
+        return $this->userRepository;
     }
 
-    /*     public function getToyRepo(): ToyRepository
+    public function getBienRepo(): BienRepository
     {
-        return $this->toyRepository;
+        return $this->bienRepository;
     }
 
-    public function getBrandRepo(): BrandRepository
+    public function getTypebienRepo(): TypebienRepository
     {
-        return $this->brandRepository;
+        return $this->typebienRepository;
     }
- */
-    // - Constructeur
+
+    public function getEquipementRepo(): EquipementRepository
+    {
+        return $this->equipementRepository;
+    }
+
+    public function getPhotoRepo(): PhotoRepository
+    {
+        return $this->photoRepository;
+    }
+
+    // - Déclarer le constructeur
     protected function __construct()
     {
         $config = App::getApp();
-        $this->utilisateurRepository = new UtilisateurRepository($config);
+        $this->userRepository = new UserRepository($config);
+        $this->bienRepository = new BienRepository($config);
+        $this->typebienRepository = new TypebienRepository($config);
+        $this->equipementRepository = new EquipementRepository($config);
+        $this->photoRepository = new PhotoRepository($config);
     }
 }

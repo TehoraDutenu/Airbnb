@@ -2,27 +2,27 @@
 
 namespace Core\Session;
 
-abstract class SessionManager
+class SessionManager
 {
-    // - Alimenter la session
+    //pour pouvoir alimenter notre session
     public static function set(string $key, mixed $value): void
     {
         $_SESSION[$key] = $value;
     }
 
-    // - Récupérer la session
+    //pour pouvoir récupérer notre session
     public static function get(string $key)
     {
-        if (!isset($_SESSION[$key])) return null;
+        if(!isset($_SESSION[$key])) return null;
         return $_SESSION[$key];
     }
 
-    // - Supprimer la session
+    //pour pouvoir vider la session
     public static function remove(string $key): void
     {
-        // - Vérifier qu'il y a bien une session
+        //si j'essaye de supprimer une session qui n'existe pas, je ne fais rien
         if (!self::get($key)) return;
-        // - La supprimer si elle existe
+        //sinon je supprime la session
         unset($_SESSION[$key]);
     }
 }

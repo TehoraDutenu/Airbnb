@@ -7,13 +7,11 @@ use App\Controller\AuthController;
 class View
 {
     // - Définir le chemin absolu vers le dossier contenant les vues
-    // - On peut réutiliser les constantes de index.php
     public const PATH_VIEW = PATH_ROOT . 'views' . DS;
 
-    // - Récupérer le chemin du dossier _templates
+    // - Récupèrer le chemin de notre dossier _templates
     public const PATH_PARTIALS = self::PATH_VIEW . '_templates' . DS;
-
-    // - Déclarer une propriété titre
+    //on déclare une propriété titre
     public string $title = 'Titre par défaut';
 
     // - Déclarer le constructeur
@@ -37,21 +35,17 @@ class View
     // - Créer notre méthode de rendu
     public function render(?array $view_data = []): void
     {
-        // - Checker si l'utilisateur est en session sinon -> connexion
+        // - Vérifier que l'utilisateur est en session, sinon le rediriger vers la page de connexion
         $auth = AuthController::class;
-
         if (!empty($view_data)) {
             extract($view_data);
         }
-
-        // - Mettre en cache le résultat
+        // - Mettre en cache du résultat
         ob_start();
-
         // - Importer le template _header
         if ($this->is_complete) {
             require self::PATH_PARTIALS . '_header.html.php';
         }
-
         // - Inclure le fichier de la vue
         require $this->getRequirePath();
 

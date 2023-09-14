@@ -8,19 +8,20 @@ class PageController
 {
     public function index()
     {
-        // - Données
+        // - Préparer les datas
         $view_data = [
-            'title_tag' => 'Airbnb',
+            'title_tag' => 'Accueil',
             'list_title' => 'Bienvenue sur Airbnb',
             'bien_list' => [
-                'maison',
-                'chateau',
-                'chambre',
-                'Appartement'
+                'Maison',
+                'Appartement',
+                'Chambre d\'hôte',
+                'Hébergement maritime',
+                'Hébergement insolite'
             ]
         ];
         $view = new View('pages/home');
-        $view->title = 'Accueil';
+        $view->title = 'Bienvenue';
         $view->render($view_data);
     }
 }

@@ -1,21 +1,17 @@
-<?php
-
+<?php 
 namespace Core\Form;
 
 use Core\Form\FormError;
 
-class FormResult
+class FormResult 
 {
-    private string $success_message;
+    //on crée un tableau pour stocker les erreurs
     private array $form_errors = [];
-
-    // - Constructeur avec paramètre par défaut
-    public function __construct(string $success_message = '')
+    //on declare le constructeur avec un paramètre par défaut
+    public function __construct(private string $success_message = '')
     {
-        $this->success_message = $success_message;
     }
-
-    // - Créer le Getter
+    //on crée son getter
     public function getSuccessMessage(): string
     {
         return $this->success_message;
@@ -25,15 +21,14 @@ class FormResult
     {
         return $this->form_errors;
     }
-
-    // - Vérifier s'il y a des erreurs
-    public function hasError(): bool
-    {
+    // on regarde si on a des erreurs
+    public function hasError(): bool{
         return !empty($this->form_errors);
     }
-
+    //on crée un tableau pour stocker les erreurs
     public function addError(FormError $error)
     {
         $this->form_errors[] = $error;
     }
+
 }

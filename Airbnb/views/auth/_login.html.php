@@ -4,28 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connexion</title>
 </head>
 
 <body>
-
-    <?php if ($auth::isAuth()) $auth::redirect('/'); ?>
-
     <h1>Se connecter</h1>
 
-    <!-- Afficher les erreurs éventuelles -->
-    <?php
-    if ($form_result && $form_result->hasError()) {
-    ?>
-        <div>
-            <?php echo $form_result->getErrors()[0]->getMessage(); ?>
+    <?php if (isset($form_result) && $form_result->hasError()) : ?>
+        <div class="error-messages">
+            <ul>
+                <?php foreach ($form_result->getErrors() as $error) : ?>
+                    <li><?php echo $error->getMessage(); ?></li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
-    <!-- Formulaire de connexion -->
-    <form action="/login" method="post">
+
+    <form action="login" method="post">
         <label for="email">
             Email : <input type="email" name="email" id="email">
         </label><br>

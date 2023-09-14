@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace Core\Database;
 
 interface DatabaseConfigInterface
