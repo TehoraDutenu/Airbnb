@@ -3,6 +3,7 @@
 
 namespace App\Model\Repository;
 
+use App\Model\Photo;
 use Core\Repository\Repository;
 
 class PhotoRepository extends Repository
@@ -11,6 +12,37 @@ class PhotoRepository extends Repository
     {
         return 'photo';
     }
+
+    public function getPhotoByBienId(int $id): ?array
+    {
+        $arr_result = [];
+
+        // - Créer la requête
+        $q = sprintf(
+            'SELECT * FROM `%s` WHERE bien_id = :id',
+            $this->getTableName()
+        );
+
+        // - Préparer la requête
+        $stmt = $this->pdo->prepare($q);
+
+        // - Vérifier que la requête est bien préparée
+        if (!$stmt) return $arr_result;
+
+        // - Exécuter la requête
+        $stmt->execute(['id' => $id]);
+
+        // - Boucler sur les résultats
+        while ($row_data = $stmt->fetch()) {
+            $photo = new Photo($row_data);
+
+            $arr_result[] = $photo;
+        }
+        // - Retourner le tableau des jouets
+        return $arr_result;
+    }
+
+
 
     public function insertPhoto(string $image_path, string $slug)
     {

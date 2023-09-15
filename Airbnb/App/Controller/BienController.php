@@ -44,9 +44,6 @@ class BienController extends Controller
 
     public function proposer()
     {
-        // - Créer une instance de View pour afficher la vue de proposer
-        $view = new View('biens/proposer', false);
-
         $typebienRepository = AppRepoManager::getRm()->getTypebienRepo();
         $typesDeBien = $typebienRepository->getTypeByLabel();
 
@@ -60,6 +57,8 @@ class BienController extends Controller
             'typebien' => $typesDeBien,
             'equipements' => $equipements
         ];
+        // - Créer une instance de View pour afficher la vue de proposer
+        $view = new View('biens/proposer', false);
         $view->render($view_data);
     }
 
@@ -156,5 +155,20 @@ class BienController extends Controller
                 self::redirect('/proposer');
             }
         }
+    }
+
+    public function seeDetails()
+    {
+
+
+        $view_data = [
+            'title_tag' => 'Détails',
+            'h1_tag' => 'Détails du bien',
+            'biens' => AppRepoManager::getRm()->getBienRepo()->findAll() ?? []
+        ];
+
+        // - Créer une instance de View pour afficher la vue de proposer
+        $view = new View('biens/details', false);
+        $view->render($view_data);
     }
 }

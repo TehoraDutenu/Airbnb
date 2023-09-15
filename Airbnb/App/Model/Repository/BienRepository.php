@@ -95,4 +95,6 @@ class BienRepository extends Repository
         }
         return true;
     }
+
+    //TODO: fonction pour réupérer mon bien + typebien  + equipement 
 }

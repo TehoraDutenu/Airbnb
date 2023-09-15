@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Core\Repository\AppRepoManager;
 use Core\View\View;
 
 class PageController
@@ -18,7 +19,8 @@ class PageController
                 'Chambre d\'hôte',
                 'Hébergement maritime',
                 'Hébergement insolite'
-            ]
+            ],
+            'biens' => AppRepoManager::getRm()->getBienRepo()->findAll()
         ];
         $view = new View('pages/home');
         $view->title = 'Bienvenue';

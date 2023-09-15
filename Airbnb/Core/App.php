@@ -77,6 +77,8 @@ class App implements DatabaseConfigInterface
         $this->router->get('/proposer', [BienController::class, 'proposer']);
         // - Créer la route pour l'inscription d'un bien
         $this->router->post('/registerBien', [BienController::class, 'createBien']);
+        // - Créer route pour les détails d'un bien
+        $this->router->get('/details/{id}', [BienController::class, 'seeDetails']);
     }
 
     // - Démarrer le router
