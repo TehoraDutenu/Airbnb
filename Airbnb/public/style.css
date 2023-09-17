@@ -6,6 +6,9 @@
     box-sizing: border-box;
 }
 
+
+/* -- GÉNÉRAL -- */
+
 ul,ol,li{
     list-style: none;
 }
@@ -19,8 +22,22 @@ a {
     color: #f5796c !important;
 }
 
-/* -- Accueil -- */
+body {
+    padding: 50px;
+}
+
+
+
+
+/* -- NAV -- */
 
 .logo {
     width: 100px !important;
+}
+
+
+/* -- FORMULAIRES -- */
+
+input {
+    caret-color: #f5796c;
 }

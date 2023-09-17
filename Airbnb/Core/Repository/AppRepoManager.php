@@ -4,6 +4,7 @@ namespace Core\Repository;
 
 use Core\App;
 use App\Model\Repository\BienRepository;
+use App\Model\Repository\EquipementBienRepository;
 use App\Model\Repository\EquipementRepository;
 use App\Model\Repository\PhotoRepository;
 use App\Model\Repository\TypebienRepository;
@@ -16,6 +17,7 @@ class AppRepoManager
     private TypebienRepository $typebienRepository;
     private EquipementRepository $equipementRepository;
     private PhotoRepository $photoRepository;
+    private EquipementBienRepository $equipementBienRepository;
 
     // - Importer le trait
     use RepositoryManagerTrait;
@@ -46,6 +48,11 @@ class AppRepoManager
         return $this->photoRepository;
     }
 
+    public function getEquipementBienRepo(): EquipementBienRepository
+    {
+        return $this->equipementBienRepository;
+    }
+
     // - Déclarer le constructeur
     protected function __construct()
     {
@@ -55,5 +62,6 @@ class AppRepoManager
         $this->typebienRepository = new TypebienRepository($config);
         $this->equipementRepository = new EquipementRepository($config);
         $this->photoRepository = new PhotoRepository($config);
+        $this->equipementBienRepository = new EquipementBienRepository($config);
     }
 }

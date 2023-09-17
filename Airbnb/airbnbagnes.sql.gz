@@ -156,7 +156,7 @@ CREATE TABLE `photo` (
 
 LOCK TABLES `photo` WRITE;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,'photos_bien/app1.webp','app1',1),(2,'photos_bien/app2.webp','app2',1);
+INSERT INTO `photo` VALUES (1,'app1.webp','app1',1),(2,'app2.webp','app2',1);
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-14 15:10:40
+-- Dump completed on 2023-09-17 16:05:19

@@ -3,6 +3,8 @@
 namespace App\Model\Repository;
 
 use App\Model\Bien;
+use App\Model\Equipement;
+use App\Model\EquipementBien;
 use Core\Repository\Repository;
 use Core\Repository\AppRepoManager;
 
@@ -22,7 +24,6 @@ class BienRepository extends Repository
     {
         return $this->readById(Bien::class, $id);
     }
-
 
     public function insertBien(int $utilisateur_id, string $label, string $description, string $adresse, int $typebien_id, int $taille, int $nbre_pieces, int $nbre_couchages, bool $are_animals, int $prix_nuitee, array $photo)
     {
@@ -95,6 +96,4 @@ class BienRepository extends Repository
         }
         return true;
     }
-
-    //TODO: fonction pour réupérer mon bien + typebien  + equipement 
 }

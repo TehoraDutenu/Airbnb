@@ -18,7 +18,7 @@ class BienController extends Controller
         $view_data = [
             'title_tag' => 'Liste des biens',
             'h1_tag' => 'Nos biens',
-            'biens' => AppRepoManager::getRm()->getBienRepo()->findAll() ?? []
+            '' => AppRepoManager::getRm()->getBienRepo()->findAll() ?? []
         ];
 
         $view = new View('/');
@@ -159,12 +159,11 @@ class BienController extends Controller
 
     public function seeDetails()
     {
-
-
         $view_data = [
             'title_tag' => 'Détails',
             'h1_tag' => 'Détails du bien',
-            'biens' => AppRepoManager::getRm()->getBienRepo()->findAll() ?? []
+            'biens' => AppRepoManager::getRm()->getBienRepo()->findAll() ?? [],
+            'equipements' => AppRepoManager::getRm()->getEquipementRepo()->findAll() ?? []
         ];
 
         // - Créer une instance de View pour afficher la vue de proposer
